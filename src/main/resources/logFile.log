@@ -1,0 +1,24 @@
+2021-10-10 03:46:56 INFO  GeoController:18 - started processing a custom request: 37.597576 55.771899
+2021-10-10 03:46:57 INFO  GeoCoderProxy:14 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 55.771899
+2021-10-10 03:47:03 INFO  GeoController:18 - started processing a custom request: 37.597576 55.771899
+2021-10-10 03:47:07 INFO  GeoController:18 - started processing a custom request: 37.597576 15.771899
+2021-10-10 03:47:07 INFO  GeoCoderProxy:14 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:21:56 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:21:56 INFO  GeoCoderProxy:14 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:35:47 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:35:47 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:38:09 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:38:09 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:42:17 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:42:17 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:43:00 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:43:00 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:43:37 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:43:37 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:44:13 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:44:13 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:44:26 ERROR HttpExecutor:27 - Bad responce code: 403
+2021-10-10 17:44:34 ERROR HttpExecutor:38 - java.rmi.ServerException: BAD
+2021-10-10 17:56:13 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 17:56:13 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 17:56:22 ERROR HttpExecutor:37 - java.rmi.ServerException: Bad response code: 403
