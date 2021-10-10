@@ -22,3 +22,19 @@
 2021-10-10 17:56:13 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
 2021-10-10 17:56:13 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
 2021-10-10 17:56:22 ERROR HttpExecutor:37 - java.rmi.ServerException: Bad response code: 403
+2021-10-10 18:04:59 INFO  GeoController:18 - Started processing a custom request: 37.597576 15.771899
+2021-10-10 18:04:59 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 19:11:31 INFO  GeoController:18 - Started processing user's request: 37.597576 15.771899
+2021-10-10 19:11:31 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 19:11:33 INFO  GeoController:18 - Started processing user's request: 37.597576 15.771899
+2021-10-10 19:11:48 INFO  GeoController:18 - Started processing user's request: 37.597576 15.771899
+2021-10-10 19:11:48 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 19:11:50 INFO  GeoController:18 - Started processing user's request: 37.597576 15.771899
+2021-10-10 19:12:00 INFO  GeoController:18 - Started processing user's request: москва красная
+2021-10-10 19:12:00 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: москва красная
+2021-10-10 20:29:24 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: москва красная
+2021-10-10 20:29:32 INFO  GeoCoderProxy:15 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 20:59:52 INFO  GeoCoderProxy:16 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 21:00:45 INFO  GeoCoderProxy:16 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 21:04:20 INFO  GeoCoderProxy:16 - Request is missing in cache. Requesting Yandex Api, for: 37.597576 15.771899
+2021-10-10 21:04:29 INFO  GeoCoderProxy:16 - Request is missing in cache. Requesting Yandex Api, for: независимости 60
