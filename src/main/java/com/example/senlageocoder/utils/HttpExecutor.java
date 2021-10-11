@@ -1,18 +1,15 @@
 package com.example.senlageocoder.utils;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpStatusCodeException;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.rmi.ServerException;
@@ -20,43 +17,63 @@ import java.rmi.ServerException;
 @Component
 public final class HttpExecutor {
     private static String apiKey;
-    private static final Logger logger = Logger.getLogger(HttpExecutor.class);
+    private static String uri;
+    private static final String URI_KEY_API_KEY = "apikey";
+    private static final String URI_KEY_FORMAT = "format";
+    private static final String URI_KEY_GEOCODE = "geocode";
+    private static final String URI_PARAM_JSON = "json";
+    private static final String API_ERROR_MSG = "Yandex response: ";
 
     @Value("${yandex.apiKey}")
-    public void setApiKey(String apiKey) {
+    public void setApiKey(final String apiKey) {
         HttpExecutor.apiKey = apiKey;
+    }
+    @Value("${yandex.uri}")
+    public void setUri(final String uri) {
+        HttpExecutor.uri = uri;
     }
 
     private static String checkStatusCode(final HttpResponse response) throws IOException {
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             return  EntityUtils.toString(response.getEntity());
         } else {
-            throw new ServerException("Bad response code: " + response.getStatusLine().getStatusCode());
+            throw new ServerException(API_ERROR_MSG + EntityUtils.toString(response.getEntity()));
         }
     }
 
-    public static String sendGet(final HttpGet get) {
+    public static String sendGet(final HttpGet get) throws IOException {
         String result = "";
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(get)) {
-          result = checkStatusCode(response);
+            result = checkStatusCode(response);
+        } catch (ServerException serverException) {
+            throw serverException;
         } catch (IOException exception) {
-            logger.error(exception);
+            throw exception;
         }
        return result;
     }
 
-    public static HttpGet buildRequestToApi(final String address) {
-        HttpGet get = null;
+    /**
+     * This  method is responsible for building a URI address for
+     * accessing Yandex Geocode Service with the following request format:
+     * {@value HttpExecutor#URI_KEY_API_KEY}  API key to access Yandex Geocode Service;
+     * {@value HttpExecutor#URI_KEY_FORMAT}  Geocoder response format, xml or json;
+     * {@value HttpExecutor#URI_KEY_GEOCODE}  Address or geographic coordinates of the desired object;
+     * @param address Address or geographic coordinates of the desired object
+     * @return get Object of {@link org.apache.http.client.methods.HttpGet}, which contains the created uri
+     */
+    public static HttpGet buildRequestToApi(final String address) throws URISyntaxException {
         try {
-            URIBuilder builder = new URIBuilder("https://geocode-maps.yandex.ru/1.x/");
-            builder.setParameter("apikey", apiKey)
-                    .setParameter("format", "json")
-                    .setParameter("geocode", address);
-            get = new HttpGet(builder.build());
+            URIBuilder builder = new URIBuilder(uri)
+                    .setParameter(URI_KEY_API_KEY, apiKey)
+                    .setParameter(URI_KEY_FORMAT, URI_PARAM_JSON)
+                    .setParameter(URI_KEY_GEOCODE, address);
+
+            HttpGet get = new HttpGet(builder.build());
+            return get;
         } catch (URISyntaxException exception) {
-            logger.error(exception);
+            throw exception;
         }
-        return get;
     }
 }
