@@ -37,6 +37,8 @@ public class YandexResponseParser {
                         .get(INDEX_OF_BEST_MATCH).getAsJsonObject()
                         .getAsJsonObject(KEY_GEO_OBJECT)
                         .getAsJsonObject(KEY_POINT).get(KEY_POS).getAsString();
+                String latlong[] = result.split(" ");
+                return latlong[1] + " " + latlong[0];
             }
         } else {
             result = BAD_REQUEST;
