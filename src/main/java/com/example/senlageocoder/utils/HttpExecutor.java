@@ -22,6 +22,8 @@ public final class HttpExecutor {
     private static final String URI_KEY_FORMAT = "format";
     private static final String URI_KEY_GEOCODE = "geocode";
     private static final String URI_PARAM_JSON = "json";
+    private static final String URI_KEY_SCO = "sco";
+    private static final String URI_PARAM_LATLONG = "latlong";
     private static final String API_ERROR_MSG = "Yandex response: ";
 
     @Value("${yandex.apiKey}")
@@ -60,6 +62,7 @@ public final class HttpExecutor {
      * {@value HttpExecutor#URI_KEY_API_KEY}  API key to access Yandex Geocode Service;
      * {@value HttpExecutor#URI_KEY_FORMAT}  Geocoder response format, xml or json;
      * {@value HttpExecutor#URI_KEY_GEOCODE}  Address or geographic coordinates of the desired object;
+     * {@value HttpExecutor#URI_KEY_SCO}  Coordinate recording order;
      * @param address Address or geographic coordinates of the desired object
      * @return get Object of {@link org.apache.http.client.methods.HttpGet}, which contains the created uri
      */
@@ -68,8 +71,8 @@ public final class HttpExecutor {
             URIBuilder builder = new URIBuilder(uri)
                     .setParameter(URI_KEY_API_KEY, apiKey)
                     .setParameter(URI_KEY_FORMAT, URI_PARAM_JSON)
-                    .setParameter(URI_KEY_GEOCODE, address);
-
+                    .setParameter(URI_KEY_GEOCODE, address)
+                    .setParameter(URI_KEY_SCO, URI_PARAM_LATLONG);
             HttpGet get = new HttpGet(builder.build());
             return get;
         } catch (URISyntaxException exception) {
