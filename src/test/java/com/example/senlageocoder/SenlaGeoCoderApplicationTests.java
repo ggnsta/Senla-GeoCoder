@@ -1,5 +1,4 @@
 package com.example.senlageocoder;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,7 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SenlaGeoCoderApplicationTests {
 
     @Test
-    void contextLoads() {
+    void contextLoads() throws Exception {
+
     }
 
 }
